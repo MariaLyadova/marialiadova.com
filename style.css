@@ -352,16 +352,13 @@ body.menu-open {
 }
 
 .about__photo {
-  width: 685px;
-  max-width: 100%;
-  margin-bottom: 40px;
-}
-
-.about__photo img {
-  width: 685px;
-  height: 685px;
-  display: block;
-  object-fit: cover;
+  width: 100%;
+  max-width: 685px;
+  margin-bottom: 32px;
+  aspect-ratio: 16 / 9;
+  background-size: 120%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .about__body {
@@ -587,13 +584,11 @@ body.menu-open {
     flex: 0 0 auto;
     width: 685px;
     max-width: 685px;
+    height: 685px;
     margin-bottom: 0;
     align-self: center;
-  }
-
-  .about__photo img {
-    width: 685px;
-    height: 685px;
+    aspect-ratio: auto;
+    background-size: cover;
   }
 
   .about__body {
