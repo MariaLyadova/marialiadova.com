@@ -51,12 +51,12 @@ button {
 
 .home-hero {
   text-align: center;
-  padding: 60px 24px 32px;
+  padding: 60px 24px 56px;
 }
 
 .home-hero__name {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(39px, 10.5vw, 140px);
+  font-size: 8.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -2px;
@@ -67,7 +67,7 @@ button {
 
 .home-hero__role {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0px;
@@ -81,13 +81,11 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 20px 24px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
   margin: 0 24px;
 }
 
 .home-bar__link {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -151,7 +149,7 @@ button {
 }
 
 .header__name {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #fff;
   letter-spacing: 0.3px;
@@ -253,7 +251,7 @@ body.menu-open .header {
 }
 
 .nav-overlay__links a {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 500;
   color: #111;
   letter-spacing: 0.5px;
@@ -292,21 +290,9 @@ body.menu-open {
 /* ───── About Page ───── */
 
 .page-about {
-  background: #111;
-  min-height: 100vh;
-}
-
-.page-about .header--dark {
-  position: relative;
-  z-index: 3;
-}
-
-.page-about .header--dark .header__name {
-  color: #fff;
-}
-
-.page-about .header--dark .header__menu span {
   background: #fff;
+  color: #111;
+  min-height: 100vh;
 }
 
 .about {
@@ -318,7 +304,7 @@ body.menu-open {
 
 .about__photo {
   width: 100%;
-  max-width: 480px;
+  max-width: 416px;
   margin-bottom: 40px;
 }
 
@@ -326,7 +312,7 @@ body.menu-open {
   width: 100%;
   display: block;
   object-fit: cover;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 4;
 }
 
 .about__body {
@@ -334,8 +320,8 @@ body.menu-open {
 }
 
 .about__title {
-  color: #fff;
-  font-size: 28px;
+  color: #111;
+  font-size: 1.75rem;
   font-weight: 500;
   margin-bottom: 32px;
 }
@@ -347,15 +333,15 @@ body.menu-open {
 }
 
 .about__details p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 15px;
+  color: rgba(17, 17, 17, 0.85);
+  font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.2px;
 }
 
 .about__details a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(17, 17, 17, 0.85);
   transition: opacity 0.2s ease;
 }
 
@@ -372,7 +358,7 @@ body.menu-open {
 }
 
 .about__socials a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(17, 17, 17, 0.85);
   display: flex;
   align-items: center;
   transition: opacity 0.2s ease;
@@ -385,28 +371,17 @@ body.menu-open {
 /* ───── Projects Page ───── */
 
 .page-projects {
-  background: #111;
-  min-height: 100vh;
-}
-
-.page-projects .header--dark {
-  position: relative;
-  z-index: 3;
-}
-
-.page-projects .header--dark .header__name {
-  color: #fff;
-}
-
-.page-projects .header--dark .header__menu span {
   background: #fff;
+  color: #111;
+  min-height: 100vh;
 }
 
 /* ───── Featured Video ───── */
 
 .featured-video {
-  width: 100%;
-  padding: 0 24px 24px;
+  width: 75%;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
 }
 
 .featured-video__wrapper {
@@ -464,7 +439,7 @@ body.menu-open {
 
   .header__nav a {
     color: #fff;
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 500;
     letter-spacing: 0.3px;
     display: flex;
@@ -490,7 +465,7 @@ body.menu-open {
   }
 
   .home-hero {
-    padding: 120px 40px 40px;
+    padding: 220px 40px 200px;
   }
 
   .home-bar {
@@ -506,7 +481,7 @@ body.menu-open {
 
   .page-about .header__nav a,
   .page-projects .header__nav a {
-    color: #fff;
+    color: #111;
   }
 
   .featured-video {
@@ -531,13 +506,14 @@ body.menu-open {
 
   .about__photo {
     flex: 0 0 auto;
-    width: 50%;
-    max-width: none;
+    width: 45%;
+    max-width: 468px;
     margin-bottom: 0;
+    align-self: center;
   }
 
   .about__photo img {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 4;
   }
 
   .about__body {
@@ -546,10 +522,10 @@ body.menu-open {
   }
 
   .about__title {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .about__details p {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
