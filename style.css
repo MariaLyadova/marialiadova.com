@@ -11,7 +11,7 @@
 html,
 body {
   height: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Michroma', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,39 +27,113 @@ button {
   cursor: pointer;
 }
 
-/* ───── Hero Section ───── */
+/* ───── Home Page ───── */
 
-.hero {
+.page-home {
+  background: #fff;
+  color: #111;
+}
+
+/* Light header variant for white background */
+.header--light {
   position: relative;
-  min-height: 100vh;
+}
+
+.header--light .header__name {
+  color: #111;
+}
+
+.header--light .header__menu span {
+  background: #111;
+}
+
+/* ───── Home Hero (big name + subtitle) ───── */
+
+.home-hero {
+  text-align: center;
+  padding: 60px 24px 32px;
+}
+
+.home-hero__name {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(39px, 10.5vw, 140px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: #111;
+  margin-bottom: 0;
+}
+
+.home-hero__role {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  color: #111;
+}
+
+/* ───── Home Bar (Selected Work / Biography) ───── */
+
+.home-bar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-
-  /* Replace with your own image:
-     background-image: url('your-image.jpg'); */
-  background-color: #1a1a1a;
-  background-image:
-    linear-gradient(160deg, rgba(30, 30, 30, 1) 0%, rgba(50, 50, 50, 1) 50%, rgba(25, 25, 25, 1) 100%);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 20px 24px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0 24px;
 }
 
-/* Dark overlay */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 1;
+.home-bar__link {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease;
 }
 
-/* Ensure all children sit above the overlay */
-.hero > * {
-  position: relative;
-  z-index: 2;
+.home-bar__link:hover {
+  opacity: 0.5;
+}
+
+.home-bar__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #f5c518;
+}
+
+/* ───── Home Grid (thumbnail cards) ───── */
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 4px 24px 60px;
+}
+
+.home-grid__card {
+  display: block;
+  overflow: hidden;
+}
+
+.home-grid__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.home-grid__card:hover img {
+  transform: scale(1.03);
 }
 
 /* ───── Header ───── */
@@ -107,50 +181,6 @@ button {
   display: none;
 }
 
-/* ───── Hero Content ───── */
-
-.hero__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 24px;
-  margin-top: 40px; /* slight push below true center */
-}
-
-.hero__title {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  line-height: 1.3;
-  margin-bottom: 36px;
-}
-
-.hero__subtitle {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-
-.hero__cta {
-  display: inline-block;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  padding: 14px 48px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  transition: background 0.25s ease, border-color 0.25s ease;
-}
-
-.hero__cta:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #fff;
-}
 
 /* ───── Hamburger → Cross animation ───── */
 
@@ -372,6 +402,28 @@ body.menu-open {
   background: #fff;
 }
 
+/* ───── Featured Video ───── */
+
+.featured-video {
+  width: 100%;
+  padding: 0 24px 24px;
+}
+
+.featured-video__wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  background: #000;
+}
+
+.featured-video__wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -432,9 +484,33 @@ body.menu-open {
     padding: 28px 40px;
   }
 
+  /* Home page: dark nav links on white bg */
+  .page-home .header__nav a {
+    color: #111;
+  }
+
+  .home-hero {
+    padding: 120px 40px 40px;
+  }
+
+  .home-bar {
+    margin: 0 40px;
+    padding: 20px 0;
+  }
+
+  .home-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 4px 40px 80px;
+  }
+
   .page-about .header__nav a,
   .page-projects .header__nav a {
     color: #fff;
+  }
+
+  .featured-video {
+    padding: 0 40px 40px;
   }
 
   .projects {

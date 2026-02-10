@@ -25,10 +25,10 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 // Add your YouTube Shorts embed URLs here.
 const videos = [
   'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
-  'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
-  'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
-  'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
-  'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
+  'https://www.youtube.com/embed/v44KNKzGUsk?si=eFBQsmPiv-6hxJFS',
+  'https://www.youtube.com/embed/DoADSrGTUik?si=y00pFXo21gNpBhze',
+
+  
 ];
 
 // Render videos into the #projects-grid container

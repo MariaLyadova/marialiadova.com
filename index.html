@@ -3,42 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maria Liadova — Video Editor & Sound Designer</title>
+  <title>Maria Liadova — Video Editor, Sound Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <section class="hero">
-    <header class="header">
-      <a href="index.html" class="header__name">Maria Liadova</a>
-      <nav class="header__nav">
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About</a>
-        <a href="https://www.instagram.com/marialadov" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="5"/>
-            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/mlyadova/" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
-          </svg>
-        </a>
-      </nav>
-      <button class="header__menu" aria-label="Open menu">
-        <span></span>
-        <span></span>
-      </button>
-    </header>
+<body class="page-home">
+  <header class="header header--light">
+    <a href="index.html" class="header__name">Maria Liadova</a>
+    <nav class="header__nav">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="https://www.instagram.com/marialadov" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/mlyadova/" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
+        </svg>
+      </a>
+    </nav>
+    <button class="header__menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
 
-    <div class="hero__content">
-      <h1 class="hero__title"> Video Editor & Sound Designer </h1>
-      <a href="projects.html" class="hero__cta">Projects</a>
-    </div>
+  <section class="home-hero">
+    <h1 class="home-hero__name">Maria Liadova</h1>
+    <p class="home-hero__role">Video Editor,Sound Designer</p>
+  </section>
+
+  <div class="home-bar">
+    <a href="projects.html" class="home-bar__link">
+      <span class="home-bar__dot"></span> Selected Work
+    </a>
+    <a href="about.html" class="home-bar__link">
+      Biography <span class="home-bar__dot"></span>
+    </a>
+  </div>
+
+  <section class="home-grid">
+    <a href="projects.html" class="home-grid__card">
+      <img src="https://img.youtube.com/vi/NpclKtJgn7w/hqdefault.jpg" alt="Project 1">
+    </a>
+    <a href="projects.html" class="home-grid__card">
+      <img src="https://img.youtube.com/vi/v44KNKzGUsk/hqdefault.jpg" alt="Project 2">
+    </a>
+    <a href="projects.html" class="home-grid__card">
+      <img src="https://img.youtube.com/vi/DoADSrGTUik/hqdefault.jpg" alt="Project 3">
+    </a>
   </section>
 
   <!-- Navigation Overlay -->
