@@ -1,3 +1,52 @@
+// ───── Home hero ML → Maria Liadova animation ─────
+
+function initHeroAnimation() {
+  const nameEl = document.querySelector('.home-hero__name');
+  const letterL = document.querySelector('.home-hero__letter--l');
+  const typedFirst = document.querySelector('.home-hero__typed--first');
+  const typedLast = document.querySelector('.home-hero__typed--last');
+  const roleEl = document.querySelector('.home-hero__role');
+
+  if (!nameEl || !letterL) return;
+
+  const restFirst = 'aria ';   // M + aria  + space → "MARIA "
+  const restLast = 'iadova';   // L + iadova        → "LIADOVA"
+
+  // Step 1: After 0.8s, rotate L to normal and bring it down to baseline
+  setTimeout(() => {
+    letterL.classList.add('is-turned');
+  }, 800);
+
+  // Step 2: After L rotation, shrink from logo size to title size
+  setTimeout(() => {
+    nameEl.classList.remove('is-logo');
+  }, 1800);
+
+  // Step 3: After shrink finishes, type the remaining letters
+  setTimeout(() => {
+    let i = 0;
+    const total = restFirst.length + restLast.length;
+
+    const typeInterval = setInterval(() => {
+      if (i < restFirst.length) {
+        typedFirst.textContent = restFirst.slice(0, i + 1);
+      } else {
+        typedLast.textContent = restLast.slice(0, i - restFirst.length + 1);
+      }
+      i++;
+      if (i >= total) {
+        clearInterval(typeInterval);
+        // Step 4: Fade in the role subtitle
+        setTimeout(() => {
+          roleEl.classList.add('is-visible');
+        }, 400);
+      }
+    }, 80);
+  }, 2600);
+}
+
+initHeroAnimation();
+
 // ───── Mobile menu toggle ─────
 
 const menuBtn = document.querySelector('.header__menu');

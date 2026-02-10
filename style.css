@@ -47,13 +47,14 @@ button {
   background: #111;
 }
 
-/* ───── Home Hero (big name + subtitle) ───── */
+/* ───── Home Hero (ML logo → Maria Liadova animation) ───── */
 
 .home-hero {
   text-align: center;
   padding: 60px 24px 40px;
 }
 
+/* Name — starts in logo state (large ML), shrinks to final title size */
 .home-hero__name {
   font-family: 'Inter', sans-serif;
   font-size: clamp(2.5rem, 10vw, 8.75rem);
@@ -63,8 +64,36 @@ button {
   line-height: 1;
   color: #111;
   margin-bottom: 4px;
+  transition: font-size 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Logo state — big ML */
+.home-hero__name.is-logo {
+  font-size: clamp(6rem, 25vw, 14rem);
+  letter-spacing: -0.01em;
+}
+
+/* Letters need inline-block for transforms */
+.home-hero__letter {
+  display: inline-block;
+}
+
+/* L starts rotated 180° and positioned higher (matching logo) */
+.home-hero__letter--l {
+  transform: rotate(180deg);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              margin-bottom 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+  vertical-align: bottom;
+  margin-bottom: 0.35em;
+}
+
+.home-hero__letter--l.is-turned {
+  transform: rotate(0deg);
+  margin-bottom: 0;
+}
+
+/* Role — hidden until name finishes typing */
 .home-hero__role {
   font-family: 'IBM Plex Mono', monospace;
   font-size: clamp(0.7rem, 2.5vw, 1.25rem);
@@ -72,6 +101,12 @@ button {
   text-transform: uppercase;
   letter-spacing: 0px;
   color: #111;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.home-hero__role.is-visible {
+  opacity: 1;
 }
 
 /* ───── Home Bar (Selected Work / Biography) ───── */
