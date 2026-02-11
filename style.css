@@ -475,6 +475,7 @@ body.menu-open {
   width: 100%;
   padding-bottom: 177.78%; /* 9:16 (Shorts) */
   background: #000;
+  overflow: hidden;
 }
 
 .project-card__video iframe {
@@ -496,6 +497,11 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.project-card__overlay:hover {
+  transform: scale(1.03);
 }
 
 /* Play button — dark circle + white triangle */
