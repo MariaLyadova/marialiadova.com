@@ -545,6 +545,25 @@ body.menu-open {
 /* ───── Desktop (768px+) ───── */
 
 @media (min-width: 768px) {
+  /* Custom scissors cursor on desktop */
+  *,
+  *::before,
+  *::after {
+    cursor: url('assets/cursor-scissors.png') 8 8, auto;
+  }
+
+  a:hover,
+  a:hover *,
+  button:hover,
+  button:hover *,
+  [role="button"]:hover,
+  [role="button"]:hover *,
+  input[type="submit"]:hover,
+  .project-card__overlay:hover,
+  .project-card__overlay:hover * {
+    cursor: url('assets/cursor-scissors-hover.png') 6 0, pointer;
+  }
+
   /* Show inline nav, hide hamburger */
   .header__nav {
     display: flex;
