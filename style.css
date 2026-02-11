@@ -93,6 +93,27 @@ button {
   margin-bottom: 0;
 }
 
+/* Link wrapper for hero name */
+.home-hero__name-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Anaglyph hover effect */
+.home-hero__name {
+  position: relative;
+}
+
+.home-hero__name-link:hover .home-hero__name {
+  color: #111;
+  text-shadow:
+    -3px 0 0 rgba(255, 0, 0, 0.7),
+     3px 0 0 rgba(0, 255, 255, 0.7);
+  transform: scale(1.05);
+  transition: text-shadow 0.2s ease, transform 0.2s ease;
+}
+
 /* Role — hidden until name finishes typing */
 .home-hero__role {
   font-family: 'IBM Plex Mono', monospace;
@@ -595,12 +616,32 @@ body.menu-open {
     opacity: 1;
   }
 
+  .header__nav-icon {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .header__nav-icon:hover {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
   .header__name--full {
     display: inline;
   }
 
   .header__name--short {
     display: none;
+  }
+
+  .header__name {
+    transition: font-weight 0.2s ease, transform 0.2s ease, text-decoration 0.2s ease;
+  }
+
+  .header__name:hover {
+    font-weight: 700;
+    transform: scale(1.2);
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .header__menu {
