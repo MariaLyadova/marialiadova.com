@@ -113,6 +113,7 @@ function createVideoCard(url, horizontal) {
   const videoId = url.split('/embed/')[1].split('?')[0];
   const card = document.createElement('article');
   card.className = horizontal ? 'project-card project-card--horizontal' : 'project-card';
+  card.id = videoId;
 
   const videoClass = horizontal ? 'project-card__video project-card__video--horizontal' : 'project-card__video';
 
@@ -165,3 +166,15 @@ function renderProjects() {
 
 renderHorizontalVideos();
 renderProjects();
+
+// Scroll to the video matching the URL hash and auto-play it
+if (window.location.hash) {
+  const target = document.getElementById(window.location.hash.slice(1));
+  if (target) {
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const overlay = target.querySelector('.project-card__overlay');
+      if (overlay) overlay.click();
+    });
+  }
+}
