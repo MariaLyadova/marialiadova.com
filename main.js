@@ -90,51 +90,71 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
   });
 });
 
-// ───── Projects: YouTube video list ─────
+// ───── Projects: YouTube video lists ─────
 
-// Add your YouTube Shorts embed URLs here.
+// Horizontal (landscape) videos — rendered first.
+const horizontalVideos = [
+  'https://www.youtube.com/embed/BwBYoTrc7sU',
+];
+
+// Vertical (Shorts) videos.
 const videos = [
   'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
   'https://www.youtube.com/embed/v44KNKzGUsk?si=eFBQsmPiv-6hxJFS',
   'https://www.youtube.com/embed/DoADSrGTUik?si=y00pFXo21gNpBhze',
-
-  
 ];
 
-// Render videos into the #projects-grid container
+// Create a video card with a cover overlay that loads the iframe on click.
+function createVideoCard(url, horizontal) {
+  const videoId = url.split('/embed/')[1].split('?')[0];
+  const card = document.createElement('article');
+  card.className = horizontal ? 'project-card project-card--horizontal' : 'project-card';
+
+  const videoClass = horizontal ? 'project-card__video project-card__video--horizontal' : 'project-card__video';
+
+  card.innerHTML = `
+    <div class="${videoClass}">
+      <div class="project-card__overlay" style="background-image: url('assets/videos/${videoId}.png')"></div>
+    </div>
+  `;
+
+  card.querySelector('.project-card__overlay').addEventListener('click', function () {
+    this.remove();
+    const separator = url.includes('?') ? '&' : '?';
+    card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
+      <iframe
+        src="${url}${separator}autoplay=1"
+        title="YouTube video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    `);
+  });
+
+  return card;
+}
+
+// Render horizontal videos into #horizontal-grid
+function renderHorizontalVideos() {
+  const grid = document.getElementById('horizontal-grid');
+  if (!grid) return;
+
+  horizontalVideos.forEach((url) => {
+    grid.appendChild(createVideoCard(url, true));
+  });
+}
+
+// Render vertical videos into #projects-grid
 function renderProjects() {
   const grid = document.getElementById('projects-grid');
   if (!grid) return;
 
   videos.forEach((url) => {
-    const videoId = url.split('/embed/')[1].split('?')[0];
-    const card = document.createElement('article');
-    card.className = 'project-card';
-
-    card.innerHTML = `
-      <div class="project-card__video">
-        <div class="project-card__overlay" style="background-image: url('assets/videos/${videoId}.png')"></div>
-      </div>
-    `;
-
-    card.querySelector('.project-card__overlay').addEventListener('click', function () {
-      this.remove();
-      card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
-        <iframe
-          width="315"
-          height="560"
-          src="${url}&autoplay=1"
-          title="YouTube video"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      `);
-    });
-
-    grid.appendChild(card);
+    grid.appendChild(createVideoCard(url, false));
   });
 }
 
+renderHorizontalVideos();
 renderProjects();

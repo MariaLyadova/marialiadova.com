@@ -457,30 +457,6 @@ body.menu-open {
   min-height: 100vh;
 }
 
-/* ───── Featured Video ───── */
-
-.featured-video {
-  width: 100%;
-  max-width: 468px;
-  margin: 0 auto;
-  padding: 40px 24px 24px;
-}
-
-.featured-video__wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 75%; /* 4:3 aspect ratio */
-  background: #000;
-}
-
-.featured-video__wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -522,17 +498,42 @@ body.menu-open {
   justify-content: center;
 }
 
-/* Play triangle */
+/* Play button — dark circle + white triangle */
 .project-card__overlay::before {
   content: '';
   position: absolute;
   z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.project-card__overlay::after {
+  content: '';
+  position: absolute;
+  z-index: 3;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 10px 0 10px 18px;
   border-color: transparent transparent transparent #fff;
   margin-left: 4px;
+}
+
+/* ───── Horizontal Videos ───── */
+
+.projects--horizontal {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+.project-card--horizontal {
+  max-width: 720px;
+}
+
+.project-card__video--horizontal {
+  padding-bottom: 56.25%; /* 16:9 */
 }
 
 /* ───── Desktop (768px+) ───── */
@@ -622,10 +623,13 @@ body.menu-open {
     color: #111;
   }
 
-  .featured-video {
-    width: 75%;
-    max-width: none;
-    padding: 0 40px 40px;
+  .projects--horizontal {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .project-card--horizontal {
+    max-width: calc(420px * 3 + 40px * 2); /* match 3 vertical cards + 2 gaps */
   }
 
   .projects {
