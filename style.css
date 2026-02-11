@@ -563,6 +563,74 @@ body.menu-open {
   padding-bottom: 56.25%; /* 16:9 */
 }
 
+/* ───── Site Footer ───── */
+
+.site-footer {
+  padding: 20px 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #111;
+}
+
+.site-footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-footer__left,
+.site-footer__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-footer__copy {
+  color: #111;
+}
+
+.site-footer__link {
+  color: #111;
+  transition: font-weight 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.site-footer__link:hover {
+  font-weight: 700;
+  transform: scale(1.2);
+}
+
+.site-footer__top {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #111;
+  padding: 0;
+  transition: font-weight 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.site-footer__top:hover {
+  font-weight: 700;
+  transform: scale(1.2);
+}
+
+.site-footer__social {
+  color: #111;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.site-footer__social:hover {
+  transform: scale(1.2);
+}
+
 /* ───── Desktop (768px+) ───── */
 
 @media (min-width: 768px) {
@@ -607,13 +675,15 @@ body.menu-open {
   }
 
   .header__nav-text {
-    transition: font-weight 0.2s ease, transform 0.2s ease;
+    transition: font-weight 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
   }
 
   .header__nav-text:hover {
-    font-weight: 700;
     transform: scale(1.2);
     opacity: 1;
+    text-shadow:
+      -2px 0 0 rgba(255, 0, 0, 0.7),
+       2px 0 0 rgba(0, 255, 255, 0.7);
   }
 
   .header__nav-icon {
@@ -634,14 +704,15 @@ body.menu-open {
   }
 
   .header__name {
-    transition: font-weight 0.2s ease, transform 0.2s ease, text-decoration 0.2s ease;
+    transition: font-weight 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
   }
 
   .header__name:hover {
     font-weight: 700;
     transform: scale(1.2);
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    text-shadow:
+      -2px 0 0 rgba(255, 0, 0, 0.7),
+       2px 0 0 rgba(0, 255, 255, 0.7);
   }
 
   .header__menu {
@@ -736,5 +807,9 @@ body.menu-open {
 
   .about__details p {
     font-size: 1rem;
+  }
+
+  .site-footer {
+    padding: 20px 40px;
   }
 }
