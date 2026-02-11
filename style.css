@@ -525,7 +525,7 @@ body.menu-open {
 
 .projects--horizontal {
   padding-top: 40px;
-  padding-bottom: 0;
+  padding-bottom: 24px;
 }
 
 .project-card--horizontal {

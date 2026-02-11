@@ -102,6 +102,10 @@ const videos = [
   'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
   'https://www.youtube.com/embed/v44KNKzGUsk?si=eFBQsmPiv-6hxJFS',
   'https://www.youtube.com/embed/DoADSrGTUik?si=y00pFXo21gNpBhze',
+  'https://www.youtube.com/embed/bqplGd-ep3o?si=Jzc4ZpkqQrFWxAuP',
+  'https://www.youtube.com/embed/S7nfjcQHv1c?si=25fOogVqojs7gH3U',
+  'https://www.youtube.com/embed/zzM6pR8PGZs?si=tLR1mzCZFQlBy9Gu',
+  ,
 ];
 
 // Create a video card with a cover overlay that loads the iframe on click.
