@@ -123,11 +123,11 @@ function createVideoCard(url, horizontal) {
   `;
 
   card.querySelector('.project-card__overlay').addEventListener('click', function () {
-    this.remove();
+    const overlay = this;
     const separator = url.includes('?') ? '&' : '?';
     card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
       <iframe
-        src="${url}${separator}autoplay=1"
+        src="${url}${separator}autoplay=1&mute=1&playsinline=1"
         title="YouTube video"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -135,6 +135,9 @@ function createVideoCard(url, horizontal) {
         allowfullscreen
       ></iframe>
     `);
+    overlay.style.transition = 'opacity 0.5s ease';
+    overlay.style.opacity = '0';
+    overlay.addEventListener('transitionend', () => overlay.remove());
   });
 
   return card;
