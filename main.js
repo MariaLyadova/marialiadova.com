@@ -6,8 +6,19 @@ function initHeroAnimation() {
   const typedFirst = document.querySelector('.home-hero__typed--first');
   const typedLast = document.querySelector('.home-hero__typed--last');
   const roleEl = document.querySelector('.home-hero__role');
+  const heroEl = document.querySelector('.home-hero');
 
   if (!nameEl || !letterL) return;
+
+  // On mobile, center hero on screen during animation, then slide up
+  if (heroEl && window.innerWidth < 768) {
+    const headerHeight = heroEl.offsetTop;
+    heroEl.style.minHeight = `calc(100svh - ${headerHeight}px)`;
+    heroEl.style.display = 'flex';
+    heroEl.style.flexDirection = 'column';
+    heroEl.style.justifyContent = 'center';
+    heroEl.style.transition = 'min-height 0.8s ease';
+  }
 
   const restFirst = 'aria ';   // M + aria  + space → "MARIA "
   const restLast = 'iadova';   // L + iadova        → "LIADOVA"
@@ -39,6 +50,16 @@ function initHeroAnimation() {
         // Step 4: Fade in the role subtitle
         setTimeout(() => {
           roleEl.classList.add('is-visible');
+          // Release centered layout on mobile after animation
+          if (heroEl && window.innerWidth < 768) {
+            heroEl.style.minHeight = '0px';
+            // Clean up flex properties after min-height transition ends
+            setTimeout(() => {
+              heroEl.style.display = '';
+              heroEl.style.flexDirection = '';
+              heroEl.style.justifyContent = '';
+            }, 800);
+          }
         }, 400);
       }
     }, 80);
@@ -86,23 +107,31 @@ function renderProjects() {
   if (!grid) return;
 
   videos.forEach((url) => {
+    const videoId = url.split('/embed/')[1].split('?')[0];
     const card = document.createElement('article');
     card.className = 'project-card';
 
     card.innerHTML = `
       <div class="project-card__video">
+        <div class="project-card__overlay" style="background-image: url('assets/videos/${videoId}.png')"></div>
+      </div>
+    `;
+
+    card.querySelector('.project-card__overlay').addEventListener('click', function () {
+      this.remove();
+      card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
         <iframe
           width="315"
           height="560"
-          src="${url}"
+          src="${url}&autoplay=1"
           title="YouTube video"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
-      </div>
-    `;
+      `);
+    });
 
     grid.appendChild(card);
   });
