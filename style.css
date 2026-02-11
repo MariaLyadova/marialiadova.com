@@ -593,8 +593,9 @@ body.menu-open {
 
 .site-footer__inner {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 16px;
   width: 100%;
 }
 
@@ -809,5 +810,11 @@ body.menu-open {
 
   .site-footer {
     padding: 20px 40px;
+  }
+
+  .site-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
   }
 }
