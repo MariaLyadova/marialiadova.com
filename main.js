@@ -95,6 +95,7 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 // Horizontal (landscape) videos — rendered first.
 const horizontalVideos = [
   'https://www.youtube.com/embed/BwBYoTrc7sU',
+  'https://www.youtube.com/embed/MrK0Rz0e95A',
 ];
 
 // Vertical (Shorts) videos.
@@ -108,6 +109,11 @@ const videos = [
   ,
 ];
 
+// Cover images that aren't .png
+const coverExtensions = {
+  'MrK0Rz0e95A': 'jpg',
+};
+
 // Create a video card with a cover overlay that loads the iframe on click.
 function createVideoCard(url, horizontal) {
   const videoId = url.split('/embed/')[1].split('?')[0];
@@ -116,10 +122,11 @@ function createVideoCard(url, horizontal) {
   card.id = videoId;
 
   const videoClass = horizontal ? 'project-card__video project-card__video--horizontal' : 'project-card__video';
+  const ext = coverExtensions[videoId] || 'png';
 
   card.innerHTML = `
     <div class="${videoClass}">
-      <div class="project-card__overlay" style="background-image: url('assets/videos/${videoId}.png')"></div>
+      <div class="project-card__overlay" style="background-image: url('assets/videos/${videoId}.${ext}')"></div>
     </div>
   `;
 
