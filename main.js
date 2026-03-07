@@ -238,7 +238,7 @@ function renderHomeGrid() {
 
     card.innerHTML = `
       <img src="${p.preview}" alt="${p.title}">
-      <span class="home-grid__info"><strong>${p.title}</strong>${p.subtitle}</span>
+      <span class="home-grid__info"><strong>${p.title}</strong><span>${p.subtitle}</span></span>
     `;
 
     grid.appendChild(card);
