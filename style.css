@@ -257,17 +257,17 @@ button {
   background: rgba(0, 0, 0, 0.55);
   color: #fff;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 1.125rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 20px;
+  padding: 12px;
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
 
 .home-grid__info strong {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
   align-self: flex-start;
@@ -808,6 +808,15 @@ body.menu-open {
 
   .home-grid__card img {
     aspect-ratio: 4 / 3;
+  }
+
+  .home-grid__info {
+    font-size: 1.125rem;
+    padding: 20px;
+  }
+
+  .home-grid__info strong {
+    font-size: 1.5rem;
   }
 
   .page-about .header__nav a,
