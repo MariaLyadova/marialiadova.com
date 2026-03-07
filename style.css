@@ -232,6 +232,7 @@ button {
 .home-grid__card {
   display: block;
   overflow: hidden;
+  position: relative;
 }
 
 .home-grid__card img {
@@ -245,6 +246,37 @@ button {
 
 .home-grid__card:hover img {
   transform: scale(1.03);
+}
+
+.home-grid__info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.home-grid__info strong {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.home-grid__card:hover .home-grid__info {
+  opacity: 1;
 }
 
 /* ───── Header ───── */

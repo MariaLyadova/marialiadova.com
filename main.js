@@ -90,31 +90,70 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
   });
 });
 
-// ───── Projects: YouTube video lists ─────
+// ───── Projects data (single source of truth) ─────
 
-// Horizontal (landscape) videos — rendered first.
-const horizontalVideos = [
-  'https://www.youtube.com/embed/BwBYoTrc7sU',
-  'https://www.youtube.com/embed/MrK0Rz0e95A',
+const projects = [
+  {
+    url: 'https://www.youtube.com/embed/BwBYoTrc7sU',
+    title: 'Guess summer campaign',
+    subtitle: 'Video Editing & Sound Design',
+    horizontal: true,
+    preview: 'assets/BwBYoTrc7sU_preview.png',
+  },
+  {
+    url: 'https://www.youtube.com/embed/MrK0Rz0e95A',
+    title: 'Urban Jürgensen Brand Film',
+    subtitle: 'Video Editing & Sound Design',
+    horizontal: true,
+    preview: 'assets/MrK0Rz0e95A_preview.jpg',
+    coverExt: 'jpg',
+  },
+  {
+    url: 'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
+    title: 'Branded Content Film for Marie Claire Arabia x Audemars Piguet',
+    subtitle: 'Video Editing & Sound Design',
+    preview: 'assets/NpclKtJgn7w_preview.png',
+  },
+  {
+    url: 'https://www.youtube.com/embed/v44KNKzGUsk?si=eFBQsmPiv-6hxJFS',
+    title: 'Branded Content Video | Dyson',
+    subtitle: 'Video Editing & Sound Design',
+    preview: 'assets/v44KNKzGUsk_preview.jpg',
+  },
+  {
+    url: 'https://www.youtube.com/embed/bqplGd-ep3o?si=Jzc4ZpkqQrFWxAuP',
+    title: 'Dior backstage video with Deva Cassel',
+    subtitle: 'Video Editing & Sound Design',
+    preview: 'assets/bqplGd-ep3o_preview.jpeg',
+  },
+  {
+    url: 'https://www.youtube.com/embed/S7nfjcQHv1c?si=25fOogVqojs7gH3U',
+    title: 'Zadig & Voltaire new year campaign',
+    subtitle: 'Video Editing & Sound Design',
+    preview: 'assets/S7nfjcQHv1c_preview.jpg',
+  },
+  {
+    url: 'https://www.youtube.com/embed/zzM6pR8PGZs?si=tLR1mzCZFQlBy9Gu',
+    title: 'Сharacter-Led Social Video Series',
+    subtitle: 'Video Editing & Sound Design',
+    preview: 'assets/zzM6pR8PGZs_preview.png',
+  },
+  {
+    url: 'https://www.youtube.com/embed/DoADSrGTUik?si=y00pFXo21gNpBhze',
+    title: 'Dior beauty backstage video',
+    subtitle: 'Video Editing & Sound Design',
+    preview: 'assets/videos/DoADSrGTUik.png',
+  },
 ];
 
-// Vertical (Shorts) videos.
-const videos = [
-  'https://www.youtube.com/embed/NpclKtJgn7w?si=SyPVQu2esE2yeIen',
-  'https://www.youtube.com/embed/v44KNKzGUsk?si=eFBQsmPiv-6hxJFS',
-  'https://www.youtube.com/embed/DoADSrGTUik?si=y00pFXo21gNpBhze',
-  'https://www.youtube.com/embed/bqplGd-ep3o?si=Jzc4ZpkqQrFWxAuP',
-  'https://www.youtube.com/embed/S7nfjcQHv1c?si=25fOogVqojs7gH3U',
-  'https://www.youtube.com/embed/zzM6pR8PGZs?si=tLR1mzCZFQlBy9Gu',
-  ,
-];
+// ───── Helper: extract YouTube video ID from embed URL ─────
 
-// Cover images that aren't .png
-const coverExtensions = {
-  'MrK0Rz0e95A': 'jpg',
-};
+function getVideoId(url) {
+  return url.split('/embed/')[1].split('?')[0];
+}
 
-// Backdrop element for dimming the page while a video plays
+// ───── Backdrop for dimming the page while a video plays ─────
+
 const backdrop = document.createElement('div');
 backdrop.className = 'video-backdrop';
 document.body.appendChild(backdrop);
@@ -130,15 +169,16 @@ function dismissActiveVideo() {
 
 backdrop.addEventListener('click', dismissActiveVideo);
 
-// Create a video card with a cover overlay that loads the iframe on click.
-function createVideoCard(url, horizontal) {
-  const videoId = url.split('/embed/')[1].split('?')[0];
+// ───── Projects page: video cards ─────
+
+function createVideoCard(project) {
+  const videoId = getVideoId(project.url);
   const card = document.createElement('article');
-  card.className = horizontal ? 'project-card project-card--horizontal' : 'project-card';
+  card.className = project.horizontal ? 'project-card project-card--horizontal' : 'project-card';
   card.id = videoId;
 
-  const videoClass = horizontal ? 'project-card__video project-card__video--horizontal' : 'project-card__video';
-  const ext = coverExtensions[videoId] || 'png';
+  const videoClass = project.horizontal ? 'project-card__video project-card__video--horizontal' : 'project-card__video';
+  const ext = project.coverExt || 'png';
 
   card.innerHTML = `
     <div class="${videoClass}">
@@ -150,10 +190,10 @@ function createVideoCard(url, horizontal) {
     dismissActiveVideo();
 
     const overlay = this;
-    const separator = url.includes('?') ? '&' : '?';
+    const separator = project.url.includes('?') ? '&' : '?';
     card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
       <iframe
-        src="${url}${separator}autoplay=1&mute=1&playsinline=1"
+        src="${project.url}${separator}autoplay=1&mute=1&playsinline=1"
         title="YouTube video"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -172,30 +212,43 @@ function createVideoCard(url, horizontal) {
   return card;
 }
 
-// Render horizontal videos into #horizontal-grid
-function renderHorizontalVideos() {
-  const grid = document.getElementById('horizontal-grid');
-  if (!grid) return;
+function renderProjectsPage() {
+  const hGrid = document.getElementById('horizontal-grid');
+  const vGrid = document.getElementById('projects-grid');
 
-  horizontalVideos.forEach((url) => {
-    grid.appendChild(createVideoCard(url, true));
+  projects.forEach((p) => {
+    if (p.horizontal && hGrid) hGrid.appendChild(createVideoCard(p));
+    if (!p.horizontal && vGrid) vGrid.appendChild(createVideoCard(p));
   });
 }
 
-// Render vertical videos into #projects-grid
-function renderProjects() {
-  const grid = document.getElementById('projects-grid');
+renderProjectsPage();
+
+// ───── Home page: preview grid ─────
+
+function renderHomeGrid() {
+  const grid = document.getElementById('home-grid');
   if (!grid) return;
 
-  videos.forEach((url) => {
-    grid.appendChild(createVideoCard(url, false));
+  projects.forEach((p) => {
+    const videoId = getVideoId(p.url);
+    const card = document.createElement('a');
+    card.href = `projects.html#${videoId}`;
+    card.className = 'home-grid__card';
+
+    card.innerHTML = `
+      <img src="${p.preview}" alt="${p.title}">
+      <span class="home-grid__info"><strong>${p.title}</strong>${p.subtitle}</span>
+    `;
+
+    grid.appendChild(card);
   });
 }
 
-renderHorizontalVideos();
-renderProjects();
+renderHomeGrid();
 
-// Scroll to the video matching the URL hash and auto-play it
+// ───── Scroll to hash & auto-play on projects page ─────
+
 if (window.location.hash) {
   const target = document.getElementById(window.location.hash.slice(1));
   if (target) {
