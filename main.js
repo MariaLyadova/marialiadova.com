@@ -114,6 +114,22 @@ const coverExtensions = {
   'MrK0Rz0e95A': 'jpg',
 };
 
+// Backdrop element for dimming the page while a video plays
+const backdrop = document.createElement('div');
+backdrop.className = 'video-backdrop';
+document.body.appendChild(backdrop);
+
+function dismissActiveVideo() {
+  const playing = document.querySelector('.project-card--playing');
+  if (!playing) return;
+  const iframe = playing.querySelector('iframe');
+  if (iframe) iframe.remove();
+  playing.classList.remove('project-card--playing');
+  backdrop.classList.remove('is-active');
+}
+
+backdrop.addEventListener('click', dismissActiveVideo);
+
 // Create a video card with a cover overlay that loads the iframe on click.
 function createVideoCard(url, horizontal) {
   const videoId = url.split('/embed/')[1].split('?')[0];
@@ -131,6 +147,8 @@ function createVideoCard(url, horizontal) {
   `;
 
   card.querySelector('.project-card__overlay').addEventListener('click', function () {
+    dismissActiveVideo();
+
     const overlay = this;
     const separator = url.includes('?') ? '&' : '?';
     card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
@@ -146,6 +164,9 @@ function createVideoCard(url, horizontal) {
     overlay.style.transition = 'opacity 0.5s ease';
     overlay.style.opacity = '0';
     overlay.addEventListener('transitionend', () => overlay.remove());
+
+    card.classList.add('project-card--playing');
+    backdrop.classList.add('is-active');
   });
 
   return card;

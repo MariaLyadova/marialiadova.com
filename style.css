@@ -564,6 +564,28 @@ body.menu-open {
   margin-left: 4px;
 }
 
+/* ───── Video Backdrop (dims page when a video is playing) ───── */
+
+.video-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.video-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-card--playing {
+  position: relative;
+  z-index: 6;
+}
+
 /* ───── Horizontal Videos ───── */
 
 .projects--horizontal {
