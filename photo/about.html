@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Maria Liadova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body class="page-about">
+  <header class="header header--light">
+    <a href="index.html" class="header__name"><span class="header__name--full">Maria Liadova</span><span class="header__name--short">M.L.</span></a>
+
+    <nav class="header__nav">
+      <a href="about.html" class="header__nav-text">About</a>
+    </nav>
+    <button class="header__menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main class="about">
+    <div class="about__photo" role="img" aria-label="Maria Liadova portrait" style="background-image: url('../assets/photo_web 2.jpg')">
+    </div>
+
+    <div class="about__body">
+      <h1 class="about__title">About</h1>
+
+      <div class="about__details">
+        <p>Photographer, Art-Director and Content Creator based in Paris</p>
+        <p>Available for portraits, editorials, events, and personal projects worldwide</p>
+        <p><a href="mailto:contact@mlyadova.ru">contact@mlyadova.ru</a></p>
+        <p><a href="tel:+33789393203">+33 7 89 39 32 03</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__left">
+        <span class="site-footer__copy">All Rights Reserved</span>
+      </div>
+      <div class="site-footer__right">
+        <button class="site-footer__top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Navigation Overlay -->
+  <nav class="nav-overlay" aria-hidden="true">
+    <div class="nav-overlay__header">
+      <a href="/photo/" class="nav-overlay__name">Maria Liadova</a>
+      <button class="nav-overlay__close" aria-label="Close menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <ul class="nav-overlay__links">
+      <li><a href="about.html"><span class="home-bar__dot"></span> About</a></li>
+    </ul>
+
+  </nav>
+
+  <script src="main.js?v=2"></script>
+</body>
+</html>
