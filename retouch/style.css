@@ -1,0 +1,20 @@
+/* Retouch-specific: full-screen vertical gallery */
+
+.photo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 0 60px;
+  overflow: visible;
+}
+
+.retouch-item {
+  width: 100%;
+}
+
+.retouch-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
