@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maria Liadova — Photo Retouching</title>
+  <title>About — Maria Liadova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="stylesheet" href="../photo/style.css?v=2">
-  <link rel="stylesheet" href="style.css?v=1">
 </head>
-<body class="page-home">
+<body class="page-about">
   <header class="header header--light">
-    <span class="header__name"><span class="header__name--full">Maria Liadova</span><span class="header__name--short">M.L.</span></span>
+    <a href="index.html" class="header__name"><span class="header__name--full">Maria Liadova</span><span class="header__name--short">M.L.</span></a>
 
     <nav class="header__nav">
+      <a href="index.html" class="header__nav-text">Retouch</a>
       <a href="about.html" class="header__nav-text">About</a>
       <a href="../photo/index.html" class="header__nav-text">Photos</a>
       <a href="../index.html" class="header__nav-text">Video</a>
@@ -26,17 +26,22 @@
     </button>
   </header>
 
-  <section class="photo-grid" id="photo-grid">
-    <!-- Photos injected by main.js from the photos array -->
-  </section>
+  <main class="about">
+    <div class="about__photo" role="img" aria-label="Maria Liadova portrait" style="background-image: url('../assets/photo_web 2.jpg')">
+    </div>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox__close" aria-label="Close">&times;</button>
-    <button class="lightbox__prev" aria-label="Previous">&#8249;</button>
-    <img class="lightbox__img" id="lightbox-img" src="" alt="">
-    <button class="lightbox__next" aria-label="Next">&#8250;</button>
-  </div>
+    <div class="about__body">
+      <h1 class="about__title">About</h1>
+
+      <div class="about__details">
+        <p>Retoucher & Photographer based in Paris</p>
+        <p>Working across fashion, luxury and commercial imagery</p>
+        <p>Available for editorials, campaigns and long-term collaborations worldwide</p>
+        <p><a href="mailto:contact@mlyadova.ru">contact@mlyadova.ru</a></p>
+        <p><a href="tel:+33789393203">+33 7 89 39 32 03</a></p>
+      </div>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -53,7 +58,7 @@
   <!-- Navigation Overlay -->
   <nav class="nav-overlay" aria-hidden="true">
     <div class="nav-overlay__header">
-      <a href="/retouch/" class="nav-overlay__name">Maria Liadova</a>
+      <a href="index.html" class="nav-overlay__name">Maria Liadova</a>
       <button class="nav-overlay__close" aria-label="Close menu">
         <span></span>
         <span></span>
@@ -61,6 +66,7 @@
     </div>
 
     <ul class="nav-overlay__links">
+      <li><a href="index.html"><span class="home-bar__dot"></span> Retouch</a></li>
       <li><a href="about.html"><span class="home-bar__dot"></span> About</a></li>
       <li><a href="../photo/index.html"><span class="home-bar__dot"></span> Photos</a></li>
       <li><a href="../index.html"><span class="home-bar__dot"></span> Video</a></li>

@@ -89,47 +89,65 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 //   subtitle: description (shown on hover, bottom-right)
 
 const photos = [
-  { src: 'assets/MariaLiadovaweb_1.png', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_2.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_3.JPG', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_4.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_5.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_6.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_7.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_8.JPG', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_9.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_10.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_11.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_12.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_13.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_14.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_15.jpeg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_16.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_17.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_18.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_19.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_20.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_21.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_22.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_23.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_24.JPG', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_25.JPG', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_26.JPG', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_27.jpg', title: 'Project Title', subtitle: 'Photography' },
-  { src: 'assets/MariaLiadovaweb_28.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb1.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb2.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb3.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb4.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb5.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb6.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb7.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb8.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb10.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb11.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb12.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb13.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb14.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb15.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb16.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb17.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb18.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb19.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb20.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb21.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb22.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb23.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb24.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb25.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb26.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb27.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb28.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb29.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb30.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb31.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb32.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb33.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb34.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb35.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb36.jpg', title: 'Project Title', subtitle: 'Photography' },
+  { src: 'assets/MariaLiadovaweb37.jpg', title: 'Project Title', subtitle: 'Photography' },
 ];
 
 // ───── Render auto-scrolling rows ─────
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 function renderPhotoGrid() {
   const grid = document.getElementById('photo-grid');
   if (!grid) return;
 
+  const shuffled = shuffle(photos);
   const rowCount = 4;
-  const perRow = Math.ceil(photos.length / rowCount);
+  const perRow = Math.ceil(shuffled.length / rowCount);
 
   for (let r = 0; r < rowCount; r++) {
-    const slice = photos.slice(r * perRow, (r + 1) * perRow);
+    const slice = shuffled.slice(r * perRow, (r + 1) * perRow);
     if (!slice.length) break;
 
     const row = document.createElement('div');
@@ -198,4 +216,91 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowLeft') showPhoto(currentPhotoIndex - 1);
   if (e.key === 'ArrowRight') showPhoto(currentPhotoIndex + 1);
+});
+
+// ───── Drag-to-scroll on photo rows ─────
+
+const ANIM_DURATION = 90;
+
+document.querySelectorAll('.photo-row').forEach((row) => {
+  const track = row.querySelector('.photo-row__track');
+  if (!track) return;
+
+  const isLeft = track.classList.contains('photo-row__track--left');
+  const animName = isLeft ? 'scroll-left' : 'scroll-right';
+
+  let isDragging = false;
+  let hasDragged = false;
+  let startX = 0;
+  let baseX = 0;
+
+  track.querySelectorAll('img').forEach((img) => {
+    img.addEventListener('dragstart', (e) => e.preventDefault());
+  });
+
+  function getTranslateX() {
+    const style = getComputedStyle(track);
+    if (!style.transform || style.transform === 'none') return 0;
+    const matrix = new DOMMatrix(style.transform);
+    return matrix.m41;
+  }
+
+  function px(e) {
+    return e.touches ? e.touches[0].clientX : e.clientX;
+  }
+
+  function resumeAnimation(fromX) {
+    const halfWidth = track.scrollWidth / 2;
+
+    let norm = fromX % halfWidth;
+    if (norm > 0) norm -= halfWidth;
+    if (norm < -halfWidth) norm += halfWidth;
+
+    const progress = isLeft
+      ? -norm / halfWidth
+      : 1 + norm / halfWidth;
+
+    const delay = -(progress * ANIM_DURATION);
+    track.style.transform = '';
+    track.style.animation = `${animName} ${ANIM_DURATION}s linear infinite`;
+    track.style.animationDelay = `${delay}s`;
+  }
+
+  function onStart(e) {
+    isDragging = true;
+    hasDragged = false;
+    startX = px(e);
+    baseX = getTranslateX();
+    track.style.animation = 'none';
+    track.style.transform = `translateX(${baseX}px)`;
+  }
+
+  function onMove(e) {
+    if (!isDragging) return;
+    const delta = px(e) - startX;
+    if (Math.abs(delta) > 3) hasDragged = true;
+    if (hasDragged && e.cancelable) e.preventDefault();
+    track.style.transform = `translateX(${baseX + delta}px)`;
+  }
+
+  function onEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    resumeAnimation(getTranslateX());
+  }
+
+  row.addEventListener('mousedown', onStart);
+  row.addEventListener('touchstart', onStart, { passive: true });
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('touchmove', onMove, { passive: false });
+  window.addEventListener('mouseup', onEnd);
+  window.addEventListener('touchend', onEnd);
+
+  track.addEventListener('click', (e) => {
+    if (hasDragged) {
+      e.stopPropagation();
+      e.preventDefault();
+      hasDragged = false;
+    }
+  }, true);
 });

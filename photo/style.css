@@ -332,28 +332,29 @@ body.menu-open {
 .photo-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 10px 0 60px;
+  gap: 6px;
+  padding: 0;
   overflow: hidden;
 }
 
 .photo-row {
   overflow: hidden;
   width: 100%;
+  cursor: grab;
 }
 
-.photo-row:hover .photo-row__track {
-  animation-play-state: paused;
+.photo-row:active {
+  cursor: grabbing;
 }
 
 .photo-row__track {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   width: max-content;
 }
 
 .photo-row__track img {
-  height: 28vh;
+  height: 40vh;
   width: auto;
   object-fit: cover;
   display: block;
@@ -362,11 +363,11 @@ body.menu-open {
 }
 
 .photo-row__track--left {
-  animation: scroll-left 60s linear infinite;
+  animation: scroll-left 90s linear infinite;
 }
 
 .photo-row__track--right {
-  animation: scroll-right 60s linear infinite;
+  animation: scroll-right 90s linear infinite;
 }
 
 @keyframes scroll-left {
@@ -654,16 +655,16 @@ body.menu-open {
   }
 
   .photo-grid {
-    gap: 10px;
-    padding: 10px 0 80px;
+    gap: 8px;
+    padding: 0;
   }
 
   .photo-row__track {
-    gap: 10px;
+    gap: 8px;
   }
 
   .photo-row__track img {
-    height: 38vh;
+    height: 46vh;
   }
 
   /* About page: side-by-side layout */
