@@ -94,6 +94,13 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 
 const projects = [
   {
+    url: 'https://www.youtube.com/embed/XeDyXuUMLI0',
+    title: 'Carolina Herrera Parfume Campaign',
+    subtitle: 'Video Editing & Sound Design',
+    horizontal: true,
+    preview: 'assets/videos/XeDyXuUMLI0.png',
+  },
+  {
     url: 'https://www.youtube.com/embed/BwBYoTrc7sU',
     title: 'Guess summer campaign',
     subtitle: 'Video Editing & Sound Design',
