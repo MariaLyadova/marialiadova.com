@@ -564,6 +564,14 @@ body.menu-open {
   max-width: 420px;
 }
 
+/* Creator Content Editing — не больше двух карточек в ряд */
+.page-creators .projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: start;
+}
+
 .project-card__video {
   position: relative;
   width: 100%;
@@ -941,6 +949,16 @@ body.menu-open {
     margin: 0 auto;
     padding: 0 40px 80px;
     gap: 40px;
+  }
+
+  .page-creators .projects {
+    grid-template-columns: repeat(2, minmax(0, 420px));
+    justify-content: center;
+  }
+
+  .page-creators .project-card {
+    max-width: none;
+    width: 100%;
   }
 
   /* About page: side-by-side layout */

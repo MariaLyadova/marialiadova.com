@@ -156,12 +156,12 @@ const projects = [
 // ───── Creator projects data ─────
 
 const creatorProjects = [
-  { url: 'https://www.youtube.com/embed/w6hkEzmqCEc', title: '', subtitle: '', preview: 'assets/videos/w6hkEzmqCEc.png' },
   { url: 'https://www.youtube.com/embed/D_0fOuZ-ZFU', title: '', subtitle: '', preview: 'assets/videos/D_0fOuZ-ZFU.png' },
-  { url: 'https://www.youtube.com/embed/T-r-EGP0Yx4', title: '', subtitle: '', preview: 'assets/videos/T-r-EGP0Yx4.png' },
   { url: 'https://www.youtube.com/embed/ZYOnbqwiWZA', title: '', subtitle: '', preview: 'assets/videos/ZYOnbqwiWZA.png' },
-  { url: 'https://www.youtube.com/embed/YHF447mZ97k', title: '', subtitle: '', preview: 'assets/videos/YHF447mZ97k.png' },
   { url: 'https://www.youtube.com/embed/oIPAioB5eFQ', title: '', subtitle: '', preview: 'assets/videos/oIPAioB5eFQ.png' },
+  { url: 'https://www.youtube.com/embed/0ScdhAqw6D4', title: '', subtitle: '', preview: 'assets/videos/0ScdhAqw6D4.png' },
+  { url: 'https://www.youtube.com/embed/w6hkEzmqCEc', title: '', subtitle: '', preview: 'assets/videos/w6hkEzmqCEc.png' },
+  { url: 'https://www.youtube.com/embed/T-r-EGP0Yx4', title: '', subtitle: '', preview: 'assets/videos/T-r-EGP0Yx4.png' },
 ];
 
 // ───── Helper: extract YouTube video ID from embed URL ─────
@@ -196,11 +196,11 @@ function createVideoCard(project) {
   card.id = videoId;
 
   const videoClass = project.horizontal ? 'project-card__video project-card__video--horizontal' : 'project-card__video';
-  const ext = project.coverExt || 'png';
+  const overlayStyle = project.preview ? `background-image: url('${project.preview}')` : '';
 
   card.innerHTML = `
     <div class="${videoClass}">
-      <div class="project-card__overlay" style="background-image: url('assets/videos/${videoId}.${ext}')"></div>
+      <div class="project-card__overlay" style="${overlayStyle}"></div>
     </div>
   `;
 
@@ -236,7 +236,7 @@ function renderProjectsPage() {
   if (!hGrid && !vGrid) return;
 
   const isCreatorsPage = window.location.pathname.includes('creators');
-  const list = isCreatorsPage ? creatorProjects : projects;
+  const list = isCreatorsPage ? creatorProjects.filter((p) => p.preview) : projects;
 
   list.forEach((p) => {
     if (p.horizontal && hGrid) hGrid.appendChild(createVideoCard(p));
