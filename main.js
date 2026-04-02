@@ -153,6 +153,17 @@ const projects = [
   },
 ];
 
+// ───── Creator projects data ─────
+
+const creatorProjects = [
+  { url: 'https://www.youtube.com/embed/w6hkEzmqCEc', title: '', subtitle: '', preview: 'assets/videos/w6hkEzmqCEc.png' },
+  { url: 'https://www.youtube.com/embed/D_0fOuZ-ZFU', title: '', subtitle: '', preview: 'assets/videos/D_0fOuZ-ZFU.png' },
+  { url: 'https://www.youtube.com/embed/T-r-EGP0Yx4', title: '', subtitle: '', preview: 'assets/videos/T-r-EGP0Yx4.png' },
+  { url: 'https://www.youtube.com/embed/ZYOnbqwiWZA', title: '', subtitle: '', preview: 'assets/videos/ZYOnbqwiWZA.png' },
+  { url: 'https://www.youtube.com/embed/YHF447mZ97k', title: '', subtitle: '', preview: 'assets/videos/YHF447mZ97k.png' },
+  { url: 'https://www.youtube.com/embed/oIPAioB5eFQ', title: '', subtitle: '', preview: 'assets/videos/oIPAioB5eFQ.png' },
+];
+
 // ───── Helper: extract YouTube video ID from embed URL ─────
 
 function getVideoId(url) {
@@ -222,8 +233,12 @@ function createVideoCard(project) {
 function renderProjectsPage() {
   const hGrid = document.getElementById('horizontal-grid');
   const vGrid = document.getElementById('projects-grid');
+  if (!hGrid && !vGrid) return;
 
-  projects.forEach((p) => {
+  const isCreatorsPage = !!document.querySelector('.creators-heading');
+  const list = isCreatorsPage ? creatorProjects : projects;
+
+  list.forEach((p) => {
     if (p.horizontal && hGrid) hGrid.appendChild(createVideoCard(p));
     if (!p.horizontal && vGrid) vGrid.appendChild(createVideoCard(p));
   });
