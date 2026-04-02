@@ -520,6 +520,29 @@ body.menu-open {
   opacity: 0.6;
 }
 
+.about__portfolio-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.about__portfolio-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #111;
+  transition: font-weight 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.about__portfolio-link:hover {
+  font-weight: 700;
+  transform: scale(1.2);
+}
+
 /* ───── Projects Page ───── */
 
 .page-projects {
