@@ -183,6 +183,14 @@ function dismissActiveVideo() {
   if (iframe) iframe.remove();
   playing.classList.remove('project-card--playing');
   backdrop.classList.remove('is-active');
+
+  const overlay = playing.querySelector('.project-card__overlay');
+  if (overlay) {
+    overlay.style.transition = '';
+    overlay.style.opacity = '1';
+    overlay.style.visibility = 'visible';
+    overlay.style.pointerEvents = '';
+  }
 }
 
 backdrop.addEventListener('click', dismissActiveVideo);
@@ -221,7 +229,16 @@ function createVideoCard(project) {
     `);
     overlay.style.transition = 'opacity 0.5s ease';
     overlay.style.opacity = '0';
-    overlay.addEventListener('transitionend', () => overlay.remove());
+    overlay.addEventListener(
+      'transitionend',
+      (e) => {
+        if (e.propertyName !== 'opacity') return;
+        if (!card.classList.contains('project-card--playing')) return;
+        overlay.style.visibility = 'hidden';
+        overlay.style.pointerEvents = 'none';
+      },
+      { once: true },
+    );
 
     card.classList.add('project-card--playing');
     backdrop.classList.add('is-active');
