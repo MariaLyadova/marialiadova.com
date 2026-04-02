@@ -170,11 +170,42 @@ function getVideoId(url) {
   return url.split('/embed/')[1].split('?')[0];
 }
 
+function findProjectForCard(videoId) {
+  return projects.find((p) => getVideoId(p.url) === videoId) || creatorProjects.find((p) => getVideoId(p.url) === videoId);
+}
+
 // ───── Backdrop for dimming the page while a video plays ─────
 
 const backdrop = document.createElement('div');
 backdrop.className = 'video-backdrop';
 document.body.appendChild(backdrop);
+
+function restoreCardPreview(card) {
+  const project = findProjectForCard(card.id);
+  if (!project) return;
+
+  const videoRoot = card.querySelector('.project-card__video');
+  let overlay = card.querySelector('.project-card__overlay');
+  const overlayStyle = project.preview ? `background-image: url('${project.preview}')` : '';
+
+  if (!overlay) {
+    videoRoot.insertAdjacentHTML('afterbegin', `<div class="project-card__overlay" style="${overlayStyle}"></div>`);
+    bindVideoCardPlay(card, project);
+    return;
+  }
+
+  overlay.removeAttribute('style');
+  if (overlayStyle) overlay.setAttribute('style', overlayStyle);
+  overlay.style.setProperty('transition', 'none');
+  overlay.style.setProperty('opacity', '1');
+  overlay.style.setProperty('visibility', 'visible');
+  overlay.style.setProperty('pointer-events', 'auto');
+  void overlay.offsetHeight;
+  overlay.style.removeProperty('transition');
+  overlay.style.removeProperty('opacity');
+  overlay.style.removeProperty('visibility');
+  overlay.style.removeProperty('pointer-events');
+}
 
 function dismissActiveVideo() {
   const playing = document.querySelector('.project-card--playing');
@@ -183,19 +214,48 @@ function dismissActiveVideo() {
   if (iframe) iframe.remove();
   playing.classList.remove('project-card--playing');
   backdrop.classList.remove('is-active');
-
-  const overlay = playing.querySelector('.project-card__overlay');
-  if (overlay) {
-    overlay.style.transition = '';
-    overlay.style.opacity = '1';
-    overlay.style.visibility = 'visible';
-    overlay.style.pointerEvents = '';
-  }
+  restoreCardPreview(playing);
 }
 
 backdrop.addEventListener('click', dismissActiveVideo);
 
 // ───── Projects page: video cards ─────
+
+function bindVideoCardPlay(card, project) {
+  const overlay = card.querySelector('.project-card__overlay');
+  if (!overlay) return;
+
+  overlay.addEventListener('click', function onPlayClick() {
+    dismissActiveVideo();
+
+    const separator = project.url.includes('?') ? '&' : '?';
+    card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
+      <iframe
+        src="${project.url}${separator}autoplay=1&mute=1&playsinline=1"
+        title="YouTube video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    `);
+
+    const ov = this;
+    ov.style.transition = 'opacity 0.5s ease';
+    ov.style.opacity = '0';
+    ov.addEventListener(
+      'transitionend',
+      (e) => {
+        if (e.propertyName !== 'opacity') return;
+        ov.style.pointerEvents = 'none';
+      },
+      { once: true },
+    );
+
+    card.classList.add('project-card--playing');
+    backdrop.classList.add('is-active');
+  });
+}
 
 function createVideoCard(project) {
   const videoId = getVideoId(project.url);
@@ -212,37 +272,7 @@ function createVideoCard(project) {
     </div>
   `;
 
-  card.querySelector('.project-card__overlay').addEventListener('click', function () {
-    dismissActiveVideo();
-
-    const overlay = this;
-    const separator = project.url.includes('?') ? '&' : '?';
-    card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
-      <iframe
-        src="${project.url}${separator}autoplay=1&mute=1&playsinline=1"
-        title="YouTube video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
-    `);
-    overlay.style.transition = 'opacity 0.5s ease';
-    overlay.style.opacity = '0';
-    overlay.addEventListener(
-      'transitionend',
-      (e) => {
-        if (e.propertyName !== 'opacity') return;
-        if (!card.classList.contains('project-card--playing')) return;
-        overlay.style.visibility = 'hidden';
-        overlay.style.pointerEvents = 'none';
-      },
-      { once: true },
-    );
-
-    card.classList.add('project-card--playing');
-    backdrop.classList.add('is-active');
-  });
+  bindVideoCardPlay(card, project);
 
   return card;
 }
