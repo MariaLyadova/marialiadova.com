@@ -235,7 +235,7 @@ function renderProjectsPage() {
   const vGrid = document.getElementById('projects-grid');
   if (!hGrid && !vGrid) return;
 
-  const isCreatorsPage = !!document.querySelector('.creators-heading');
+  const isCreatorsPage = window.location.pathname.includes('creators');
   const list = isCreatorsPage ? creatorProjects : projects;
 
   list.forEach((p) => {
@@ -245,6 +245,18 @@ function renderProjectsPage() {
 }
 
 renderProjectsPage();
+
+// ───── Match heading text width to title width ─────
+
+function syncHeadingTextWidth() {
+  const title = document.querySelector('.creators-heading__title');
+  const text = document.querySelector('.creators-heading__text');
+  if (!title || !text) return;
+  text.style.maxWidth = title.offsetWidth + 'px';
+}
+
+syncHeadingTextWidth();
+window.addEventListener('resize', syncHeadingTextWidth);
 
 // ───── Home page: preview grid ─────
 

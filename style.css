@@ -625,12 +625,12 @@ body.menu-open {
 
 .creators-heading {
   text-align: center;
-  padding: 40px 24px 60px;
+  padding: 120px 24px 60px;
 }
 
 .creators-heading__title {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.5px;
@@ -648,12 +648,15 @@ body.menu-open {
 
 .creators-heading__text {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: rgba(17, 17, 17, 0.7);
+  font-size: clamp(0.7rem, 2.5vw, 1.25rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #111;
   line-height: 1.6;
-  margin-top: 12px;
-  letter-spacing: 0.2px;
+  margin: 48px auto 0;
+  letter-spacing: 0px;
+  text-align: justify;
+  text-align-last: center;
 }
 
 /* ───── Projects CTA (Creator Content Editing link) ───── */
@@ -665,10 +668,10 @@ body.menu-open {
 
 .projects-cta__title {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.5rem, 5vw, 3rem);
-  font-weight: 700;
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.5px;
   color: #111;
   display: inline-block;
   transition: transform 0.35s ease, text-shadow 0.35s ease;
@@ -930,7 +933,8 @@ body.menu-open {
   }
 
   .project-card--horizontal {
-    max-width: calc(420px * 3 + 40px * 2); /* match 3 vertical cards + 2 gaps */
+    max-width: 100%;
+    width: 100%;
   }
 
   .projects {
