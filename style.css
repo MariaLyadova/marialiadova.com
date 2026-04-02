@@ -567,11 +567,11 @@ body.menu-open {
   height: 220%;
   z-index: 8;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n' x='-20%25' y='-20%25' width='140%25' height='140%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.28' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n' x='-20%25' y='-20%25' width='140%25' height='140%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.36' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 480px 480px;
+  background-size: 400px 400px;
   mix-blend-mode: multiply;
-  opacity: 0.14;
+  opacity: 0.11;
   animation: page-projects-grain 4s steps(8) infinite;
   will-change: transform;
 }
@@ -587,11 +587,11 @@ body.menu-open {
   height: 220%;
   z-index: 8;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n2' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.52' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n2' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 380px 380px;
+  background-size: 320px 320px;
   mix-blend-mode: multiply;
-  opacity: 0.056;
+  opacity: 0.045;
   animation: page-projects-grain-alt 3.2s steps(10) infinite;
   will-change: transform;
 }
@@ -634,14 +634,14 @@ body.menu-open {
   .page-home::before,
   .page-about::before {
     animation: none;
-    opacity: 0.07;
+    opacity: 0.055;
   }
 
   .page-projects::after,
   .page-home::after,
   .page-about::after {
     animation: none;
-    opacity: 0.028;
+    opacity: 0.022;
   }
 }
 
