@@ -48,6 +48,8 @@ button {
 .page-home {
   background: #fff;
   color: #111;
+  isolation: isolate;
+  min-height: 100vh;
 }
 
 /* Light header variant for white background */
@@ -448,6 +450,7 @@ body.menu-open {
   background: #fff;
   color: #111;
   min-height: 100vh;
+  isolation: isolate;
 }
 
 .about {
@@ -546,9 +549,100 @@ body.menu-open {
 /* ───── Projects Page ───── */
 
 .page-projects {
-  background: #fff;
+  background-color: #fff;
   color: #111;
   min-height: 100vh;
+  isolation: isolate;
+}
+
+/* Плёночное зерно: главная, About, Commercial/Creator */
+.page-projects::before,
+.page-home::before,
+.page-about::before {
+  content: '';
+  position: fixed;
+  left: -60%;
+  top: -60%;
+  width: 220%;
+  height: 220%;
+  z-index: 8;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n' x='-20%25' y='-20%25' width='140%25' height='140%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.28' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 480px 480px;
+  mix-blend-mode: multiply;
+  opacity: 0.14;
+  animation: page-projects-grain 4s steps(8) infinite;
+  will-change: transform;
+}
+
+.page-projects::after,
+.page-home::after,
+.page-about::after {
+  content: '';
+  position: fixed;
+  left: -60%;
+  top: -60%;
+  width: 220%;
+  height: 220%;
+  z-index: 8;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n2' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.52' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 380px 380px;
+  mix-blend-mode: multiply;
+  opacity: 0.056;
+  animation: page-projects-grain-alt 3.2s steps(10) infinite;
+  will-change: transform;
+}
+
+@keyframes page-projects-grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3%, 4%);
+  }
+  50% {
+    transform: translate(2%, -2.5%);
+  }
+  75% {
+    transform: translate(-1.5%, -3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes page-projects-grain-alt {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(3.5%, -2%);
+  }
+  66% {
+    transform: translate(-2.5%, 2.5%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-projects::before,
+  .page-home::before,
+  .page-about::before {
+    animation: none;
+    opacity: 0.07;
+  }
+
+  .page-projects::after,
+  .page-home::after,
+  .page-about::after {
+    animation: none;
+    opacity: 0.028;
+  }
 }
 
 .projects {
@@ -957,6 +1051,18 @@ body.menu-open {
   }
 
   .page-creators .project-card {
+    max-width: none;
+    width: 100%;
+  }
+
+  /* Commercial projects — вертикальные видео, до 3 в ряд (колонка до 630px) */
+  body.page-projects:not(.page-creators) #projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 630px));
+    justify-content: center;
+  }
+
+  body.page-projects:not(.page-creators) #projects-grid .project-card {
     max-width: none;
     width: 100%;
   }
