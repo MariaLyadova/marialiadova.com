@@ -231,7 +231,7 @@ function bindVideoCardPlay(card, project) {
     const separator = project.url.includes('?') ? '&' : '?';
     card.querySelector('.project-card__video').insertAdjacentHTML('beforeend', `
       <iframe
-        src="${project.url}${separator}autoplay=1&mute=1&playsinline=1"
+        src="${project.url}${separator}autoplay=1&playsinline=1"
         title="YouTube video"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
