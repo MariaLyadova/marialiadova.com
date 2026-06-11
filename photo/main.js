@@ -89,7 +89,10 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 //   subtitle: description (shown on hover, bottom-right)
 
 const photos = [
-  { src: 'assets/MariaLiadovaweb8_P.png', title: 'Portrait', cat: 'P' },
+  { src: 'assets/MariaLiadovaweb3_P.jpeg', title: 'Portrait', cat: 'P' },
+  { src: 'assets/MariaLiadovaweb7_P.jpeg', title: 'Portrait', cat: 'P' },
+  { src: 'assets/MariaLiadovaweb8_P.jpeg', title: 'Portrait', cat: 'P' },
+  { src: 'assets/MariaLiadovaweb9_P.jpeg', title: 'Portrait', cat: 'P' },
   { src: 'assets/MariaLiadovaweb11_P.jpg', title: 'Portrait', cat: 'P' },
   { src: 'assets/MariaLiadovaweb12_P.jpg', title: 'Portrait', cat: 'P' },
   { src: 'assets/MariaLiadovaweb13_P.jpg', title: 'Portrait', cat: 'P' },
