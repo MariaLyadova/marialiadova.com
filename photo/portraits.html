@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maria Liadova — Photographer</title>
+  <title>Portraits — Maria Liadova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body class="page-home">
   <header class="header header--light">
-    <span class="header__name"><span class="header__name--full">Maria Liadova</span><span class="header__name--short">M.L.</span></span>
+    <a href="index.html" class="header__name"><span class="header__name--full">Maria Liadova</span><span class="header__name--short">M.L.</span></a>
 
     <nav class="header__nav">
       <a href="portraits.html" class="header__nav-text">Portraits</a>
@@ -26,11 +26,11 @@
     </button>
   </header>
 
-  <section class="photo-grid" id="photo-grid">
-    <!-- Photos injected by main.js from the photos array -->
-  </section>
+  <main class="category">
+    <h1 class="category__title">Portraits</h1>
+    <div class="category-grid" id="category-grid" data-category="P"></div>
+  </main>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox__close" aria-label="Close">&times;</button>
     <button class="lightbox__prev" aria-label="Previous">&#8249;</button>
@@ -38,7 +38,6 @@
     <button class="lightbox__next" aria-label="Next">&#8250;</button>
   </div>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div class="site-footer__left">
@@ -50,7 +49,6 @@
     </div>
   </footer>
 
-  <!-- Navigation Overlay -->
   <nav class="nav-overlay" aria-hidden="true">
     <div class="nav-overlay__header">
       <a href="/photo/" class="nav-overlay__name">Maria Liadova</a>
@@ -66,7 +64,6 @@
       <li><a href="reportage.html"><span class="home-bar__dot"></span> Reportage</a></li>
       <li><a href="about.html"><span class="home-bar__dot"></span> About</a></li>
     </ul>
-
   </nav>
 
   <script src="main.js?v=8"></script>

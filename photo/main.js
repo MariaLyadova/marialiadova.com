@@ -90,7 +90,6 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 
 const photos = [
   { src: 'assets/MariaLiadovaweb3_P.jpeg', title: 'Portrait', cat: 'P' },
-  { src: 'assets/MariaLiadovaweb7_P.jpeg', title: 'Portrait', cat: 'P' },
   { src: 'assets/MariaLiadovaweb8_P.jpeg', title: 'Portrait', cat: 'P' },
   { src: 'assets/MariaLiadovaweb9_P.jpeg', title: 'Portrait', cat: 'P' },
   { src: 'assets/MariaLiadovaweb11_P.jpg', title: 'Portrait', cat: 'P' },
@@ -111,17 +110,16 @@ const photos = [
   { src: 'assets/MariaLiadovaweb26_A.jpg', title: 'Architecture', cat: 'L' },
   { src: 'assets/MariaLiadovaweb27_A.jpg', title: 'Architecture', cat: 'L' },
   { src: 'assets/MariaLiadovaweb28_A.jpg', title: 'Architecture', cat: 'L' },
-  { src: 'assets/MariaLiadovaweb14_R.jpg', title: 'Reportage', cat: 'R' },
-  { src: 'assets/MariaLiadovaweb15_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb17_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb21_R.jpeg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb22_R.jpg', title: 'Reportage', cat: 'R' },
-  { src: 'assets/MariaLiadovaweb23_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb29_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb30_R.jpeg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb31_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb32_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb36_R.jpeg', title: 'Reportage', cat: 'R' },
+  { src: 'assets/MariaLiadovaweb14_R.jpg', title: 'Reportage', cat: 'R' },
+  { src: 'assets/MariaLiadovaweb15_R.jpg', title: 'Reportage', cat: 'R' },
 ];
 
 const rowOrder = ['P', 'L', 'R'];
@@ -168,6 +166,24 @@ function renderPhotoGrid() {
 
 renderPhotoGrid();
 
+function renderCategoryPage() {
+  const grid = document.getElementById('category-grid');
+  if (!grid) return;
+
+  const cat = grid.dataset.category;
+  const list = photos.filter((p) => p.cat === cat);
+
+  list.forEach((p, i) => {
+    const img = document.createElement('img');
+    img.src = p.src;
+    img.alt = p.title;
+    img.addEventListener('click', () => openLightbox(i, list));
+    grid.appendChild(img);
+  });
+}
+
+renderCategoryPage();
+
 // ───── Lightbox ─────
 
 const lightbox = document.getElementById('lightbox');
@@ -177,19 +193,22 @@ const lightboxPrev = document.querySelector('.lightbox__prev');
 const lightboxNext = document.querySelector('.lightbox__next');
 
 let currentPhotoIndex = -1;
+let lightboxPhotos = photos;
 
-function openLightbox(index) {
+function openLightbox(index, list = photos) {
+  if (!lightbox) return;
+  lightboxPhotos = list;
   currentPhotoIndex = index;
-  lightboxImg.src = photos[index].src;
-  lightboxImg.alt = photos[index].title;
+  lightboxImg.src = list[index].src;
+  lightboxImg.alt = list[index].title;
   lightbox.classList.add('is-active');
   document.body.style.overflow = 'hidden';
 }
 
 function showPhoto(index) {
-  currentPhotoIndex = ((index % photos.length) + photos.length) % photos.length;
-  lightboxImg.src = photos[currentPhotoIndex].src;
-  lightboxImg.alt = photos[currentPhotoIndex].title;
+  currentPhotoIndex = ((index % lightboxPhotos.length) + lightboxPhotos.length) % lightboxPhotos.length;
+  lightboxImg.src = lightboxPhotos[currentPhotoIndex].src;
+  lightboxImg.alt = lightboxPhotos[currentPhotoIndex].title;
 }
 
 function closeLightbox() {
@@ -198,20 +217,22 @@ function closeLightbox() {
   currentPhotoIndex = -1;
 }
 
-lightboxClose.addEventListener('click', closeLightbox);
-lightboxPrev.addEventListener('click', () => showPhoto(currentPhotoIndex - 1));
-lightboxNext.addEventListener('click', () => showPhoto(currentPhotoIndex + 1));
+if (lightbox) {
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', () => showPhoto(currentPhotoIndex - 1));
+  lightboxNext.addEventListener('click', () => showPhoto(currentPhotoIndex + 1));
 
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) closeLightbox();
-});
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
 
-document.addEventListener('keydown', (e) => {
-  if (currentPhotoIndex < 0) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft') showPhoto(currentPhotoIndex - 1);
-  if (e.key === 'ArrowRight') showPhoto(currentPhotoIndex + 1);
-});
+  document.addEventListener('keydown', (e) => {
+    if (currentPhotoIndex < 0) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPhoto(currentPhotoIndex - 1);
+    if (e.key === 'ArrowRight') showPhoto(currentPhotoIndex + 1);
+  });
+}
 
 // ───── Drag-to-scroll on photo rows ─────
 

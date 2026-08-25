@@ -449,6 +449,32 @@ body.menu-open {
   right: 12px;
 }
 
+/* ───── Category pages ───── */
+
+.category {
+  padding: 8px 24px 60px;
+}
+
+.category__title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.category-grid {
+  columns: 1;
+  column-gap: 6px;
+}
+
+.category-grid img {
+  width: 100%;
+  display: block;
+  margin-bottom: 6px;
+  break-inside: avoid;
+  cursor: pointer;
+}
+
 /* ───── About Page ───── */
 
 .page-about {
@@ -504,6 +530,24 @@ body.menu-open {
 }
 
 .about__details a:hover {
+  opacity: 0.6;
+}
+
+.about__sites {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.about__sites a {
+  color: rgba(17, 17, 17, 0.4);
+  font-size: 0.8125rem;
+  letter-spacing: 0.2px;
+  transition: opacity 0.2s ease;
+}
+
+.about__sites a:hover {
   opacity: 0.6;
 }
 
@@ -583,12 +627,12 @@ body.menu-open {
   .header__nav {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 16px;
   }
 
   .header__nav a {
     color: #111;
-    font-size: 2rem;
+    font-size: 1.15rem;
     font-weight: 600;
     letter-spacing: 0.3px;
     display: flex;
@@ -667,6 +711,23 @@ body.menu-open {
     height: 46vh;
   }
 
+  .category {
+    padding: 8px 40px 80px;
+  }
+
+  .category__title {
+    font-size: 2rem;
+  }
+
+  .category-grid {
+    columns: 2;
+    column-gap: 8px;
+  }
+
+  .category-grid img {
+    margin-bottom: 8px;
+  }
+
   /* About page: side-by-side layout */
   .about {
     flex-direction: row;
@@ -709,5 +770,15 @@ body.menu-open {
     flex-direction: row;
     justify-content: space-between;
     gap: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__nav {
+    gap: 28px;
+  }
+
+  .header__nav a {
+    font-size: 2rem;
   }
 }
