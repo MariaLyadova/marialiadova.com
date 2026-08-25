@@ -114,13 +114,14 @@ const photos = [
   { src: 'assets/MariaLiadovaweb14_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb15_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb17_R.jpg', title: 'Reportage', cat: 'R' },
-  { src: 'assets/MariaLiadovaweb21_R.jpg', title: 'Reportage', cat: 'R' },
+  { src: 'assets/MariaLiadovaweb21_R.jpeg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb22_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb23_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb29_R.jpg', title: 'Reportage', cat: 'R' },
-  { src: 'assets/MariaLiadovaweb30_R.jpg', title: 'Reportage', cat: 'R' },
+  { src: 'assets/MariaLiadovaweb30_R.jpeg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb31_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb32_R.jpg', title: 'Reportage', cat: 'R' },
+  { src: 'assets/MariaLiadovaweb36_R.jpeg', title: 'Reportage', cat: 'R' },
 ];
 
 const rowOrder = ['P', 'L', 'R'];
