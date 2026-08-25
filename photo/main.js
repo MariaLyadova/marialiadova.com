@@ -305,6 +305,20 @@ document.querySelectorAll('.photo-row').forEach((row) => {
     if (!isDragging) resumeAnimation(getTranslateX());
   });
 
+  function nudge(dx) {
+    const x = getTranslateX();
+    track.style.animation = 'none';
+    track.style.transform = `translateX(${x + dx}px)`;
+  }
+
+  row.addEventListener('wheel', (e) => {
+    const dx = e.shiftKey ? e.deltaY : e.deltaX;
+    if (!e.shiftKey && Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    if (!dx) return;
+    e.preventDefault();
+    nudge(-dx);
+  }, { passive: false });
+
   row.addEventListener('mousedown', onStart);
   row.addEventListener('touchstart', onStart, { passive: true });
   window.addEventListener('mousemove', onMove);
