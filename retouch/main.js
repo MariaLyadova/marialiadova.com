@@ -27,6 +27,7 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 const photos = [
   { src: 'assets/1.png', title: 'Retouch 1' },
   { src: 'assets/2_1.png', title: 'Retouch 2' },
+  { src: 'assets/2_2.png', title: 'Retouch 2' },
   { src: 'assets/2.png', title: 'Retouch 2' },
   { src: 'assets/3.png', title: 'Retouch 3' },
   { src: 'assets/4.png', title: 'Retouch 4' },
