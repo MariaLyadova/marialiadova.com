@@ -42,7 +42,7 @@ const photos = [
   { src: 'assets/13.png', title: 'Retouch 13' },
   { src: 'assets/14.png', title: 'Retouch 14' },
   { src: 'assets/15.png', title: 'Retouch 15' },
-  { src: 'assets/16.png', title: 'Retouch 16' },
+  { src: 'assets/16.png?v=2', title: 'Retouch 16' },
 ];
 
 // ───── Render full-screen vertical gallery ─────
