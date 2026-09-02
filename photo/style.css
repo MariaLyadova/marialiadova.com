@@ -136,6 +136,25 @@ body.menu-open {
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  .header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    transition: transform 0.25s ease;
+  }
+
+  .header.is-away {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  body.menu-open .header.is-away {
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
 /* ───── Navigation Overlay ───── */
 
 .nav-overlay {
@@ -191,16 +210,18 @@ body.menu-open {
 
 .nav-overlay__socials {
   position: absolute;
-  bottom: 40px;
+  bottom: 120px;
   display: flex;
-  gap: 20px;
+  gap: 36px;
   align-items: center;
+  font-size: 2.5rem;
 }
 
 .nav-overlay__socials a {
   color: #111;
   display: flex;
   align-items: center;
+  font-size: inherit;
   transition: opacity 0.2s ease;
 }
 
@@ -533,6 +554,59 @@ body.menu-open {
   opacity: 0.6;
 }
 
+.about__socials {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.about__socials a {
+  color: rgba(17, 17, 17, 0.85);
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  transition: opacity 0.2s ease;
+}
+
+.about__socials a:hover {
+  opacity: 0.6;
+}
+
+.about__socials a,
+.page-socials a,
+.nav-overlay__socials a {
+  font-size: inherit;
+}
+
+.about__socials svg,
+.page-socials svg,
+.nav-overlay__socials svg,
+.header__nav-icon svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.page-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  padding: 12px 24px 8px;
+  font-size: 2.5rem;
+}
+
+.page-socials a {
+  color: #111;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.page-socials a:hover {
+  opacity: 0.6;
+}
+
 .about__sites {
   display: flex;
   justify-content: center;
@@ -556,7 +630,7 @@ body.menu-open {
 .site-footer {
   padding: 20px 24px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 1.375rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -595,7 +669,7 @@ body.menu-open {
 
 .site-footer__top {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 1.375rem;
+  font-size: inherit;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -764,6 +838,7 @@ body.menu-open {
 
   .site-footer {
     padding: 20px 40px;
+    font-size: 1.375rem;
   }
 
   .site-footer__inner {
@@ -780,5 +855,10 @@ body.menu-open {
 
   .header__nav a {
     font-size: 2rem;
+  }
+
+  .page-socials,
+  .about__socials a {
+    font-size: 3.5rem;
   }
 }

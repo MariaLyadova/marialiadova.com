@@ -82,6 +82,19 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
   });
 });
 
+const header = document.querySelector('.header');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  if (!header || window.innerWidth >= 768) return;
+  if (document.body.classList.contains('menu-open')) return;
+
+  const y = window.scrollY;
+  const goingUp = y < lastScrollY;
+  header.classList.toggle('is-away', y > 80 && !goingUp);
+  lastScrollY = y;
+}, { passive: true });
+
 // ───── Photos data (single source of truth) ─────
 // Add your photos here. Each entry needs:
 //   src:      path to the image file
