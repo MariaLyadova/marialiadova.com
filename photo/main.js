@@ -130,6 +130,7 @@ const photos = [
   { src: 'assets/MariaLiadovaweb30_R.jpeg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb31_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb32_R.jpg', title: 'Reportage', cat: 'R' },
+  { src: 'assets/MariaLiadovaweb33_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb36_R.jpeg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb14_R.jpg', title: 'Reportage', cat: 'R' },
   { src: 'assets/MariaLiadovaweb15_R.jpg', title: 'Reportage', cat: 'R' },
