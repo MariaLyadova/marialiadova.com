@@ -44,7 +44,6 @@ const photos = [
   { src: 'assets/2_3.png', title: 'Retouch 2' },
   { src: 'assets/2_4.png', title: 'Retouch 2' },
   { src: 'assets/2_5.png', title: 'Retouch 2' },
-  { src: 'assets/Frame 221.png', title: 'Retouch 2' },
   { src: 'assets/2.png', title: 'Retouch 2' },
   { src: 'assets/3.png', title: 'Retouch 3' },
   { src: 'assets/4.png', title: 'Retouch 4' },
