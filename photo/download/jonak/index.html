@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landscapes — Maria Liadova</title>
+  <meta name="robots" content="noindex, nofollow">
+  <title>JONAK JAM — Maria Liadova</title>
+  <base href="/photo/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/favicon.png">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=22">
 </head>
-<body class="page-home">
+<body class="page-home page-download">
   <header class="header header--light">
     <a href="index.html" class="header__name"><span class="header__name--full">Maria Liadova</span><span class="header__name--short">M.L.</span></a>
 
@@ -26,9 +28,41 @@
     </button>
   </header>
 
-  <main class="category">
-    <h1 class="category__title">Landscapes</h1>
-    <div class="category-grid" id="category-grid" data-category="L"></div>
+  <div class="delivery" id="delivery-live">
+    <aside class="delivery-panel" id="delivery-panel">
+      <div class="delivery-panel__copy">
+        <h1 class="about__title" id="delivery-title"></h1>
+        <div class="about__details">
+          <div class="delivery-panel__meta">
+            <p id="delivery-location" hidden></p>
+            <p id="delivery-date" hidden></p>
+          </div>
+          <p>
+            <a class="delivery__download" id="delivery-link" hidden href="#" target="_blank" rel="noopener noreferrer">
+              <span class="home-bar__dot"></span>
+              <span class="delivery__download-label">Download</span>
+              <span class="home-bar__dot"></span>
+            </a>
+          </p>
+          <p><a href="mailto:contact.liadova@gmail.com">contact.liadova@gmail.com</a></p>
+        </div>
+      </div>
+    </aside>
+
+    <section class="photo-grid" id="photo-grid"></section>
+  </div>
+
+  <main class="about" id="delivery-stub" hidden>
+    <div class="about__photo" role="img" aria-label="Maria Liadova portrait" style="background-image: url('../assets/photo_web 2.jpg')">
+    </div>
+
+    <div class="about__body">
+      <h1 class="about__title">This link is no longer available</h1>
+      <div class="about__details">
+        <p>Write to me and I will send a new one.</p>
+        <p><a href="mailto:contact.liadova@gmail.com">contact.liadova@gmail.com</a></p>
+      </div>
+    </div>
   </main>
 
   <div class="lightbox" id="lightbox">
@@ -66,6 +100,7 @@
     </ul>
   </nav>
 
-  <script src="main.js?v=11"></script>
+  <script src="download.js?v=8"></script>
+  <script src="main.js?v=12"></script>
 </body>
 </html>

@@ -149,11 +149,20 @@ function shuffle(arr) {
   return a;
 }
 
+function gridRowOrder(grid) {
+  const allowed = new Set(rowOrder);
+  const fromData = (grid.dataset.categories || '')
+    .split(',')
+    .map((cat) => cat.trim())
+    .filter((cat) => allowed.has(cat));
+  return fromData.length ? fromData : rowOrder;
+}
+
 function renderPhotoGrid() {
   const grid = document.getElementById('photo-grid');
   if (!grid) return;
 
-  rowOrder.forEach((cat, r) => {
+  gridRowOrder(grid).forEach((cat, r) => {
     const catPhotos = shuffle(photos.filter((p) => p.cat === cat));
     if (!catPhotos.length) return;
 
