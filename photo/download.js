@@ -11,6 +11,10 @@
 const current = 'jonak';
 const defaultCats = ['P', 'R'];
 
+// Apps Script web app URL from scripts/delivery-visits.gs. Empty = do not log.
+const visitLogUrl = '';
+const visitLogKey = 'ml-visits';
+
 const deliveries = {
   jonak: {
     event: 'JONAK JAM',
@@ -86,6 +90,27 @@ function renderDelivery() {
   } else if (linkEl) {
     linkEl.hidden = true;
   }
+
+  logDeliveryVisit(id);
+}
+
+function logDeliveryVisit(id) {
+  if (!visitLogUrl || new URLSearchParams(window.location.search).has('selfcheck')) return;
+
+  const payload = new URLSearchParams({
+    k: visitLogKey,
+    page: id,
+    href: window.location.pathname,
+  });
+
+  fetch('https://api.ipify.org?format=json')
+    .then((res) => (res.ok ? res.json() : {}))
+    .catch(() => ({}))
+    .then((data) => {
+      if (data.ip) payload.set('ip', data.ip);
+      return fetch(`${visitLogUrl}?${payload}`, { mode: 'no-cors', keepalive: true });
+    })
+    .catch(() => {});
 }
 
 renderDelivery();
@@ -100,4 +125,5 @@ if (new URLSearchParams(window.location.search).has('selfcheck')) {
   console.assert(idFromPath('/photo/download/jonak/index.html', null) === 'jonak', 'index pretty url');
   console.assert(idFromPath('/photo/download.html', null) === current, 'download.html default');
   console.assert(idFromPath('/photo/download.html', 'x') === 'x', 'query wins');
+  console.assert(logDeliveryVisit('selfcheck-noop') === undefined, 'log is fire-and-forget');
 }
