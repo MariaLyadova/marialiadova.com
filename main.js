@@ -169,12 +169,12 @@ const projects = [
 // ───── Creator projects data ─────
 
 const creatorProjects = [
-  { url: 'https://www.youtube.com/embed/D_0fOuZ-ZFU', title: 'Balmain', subtitle: 'Videography', preview: 'assets/videos/D_0fOuZ-ZFU.png' },
-  { url: 'https://www.youtube.com/embed/ZYOnbqwiWZA', title: 'Harris Reed x British Vogue', subtitle: 'Videography', preview: 'assets/videos/ZYOnbqwiWZA.png' },
-  { url: 'https://www.youtube.com/embed/oIPAioB5eFQ', title: 'Hermès', subtitle: 'Videography', preview: 'assets/videos/oIPAioB5eFQ.png' },
-  { url: 'https://www.youtube.com/embed/0ScdhAqw6D4', title: 'Mary Leest, Paris Fashion Week', subtitle: 'Videography', preview: 'assets/videos/0ScdhAqw6D4.png' },
-  { url: 'https://www.youtube.com/embed/w6hkEzmqCEc', title: 'Michael Kors', subtitle: 'Videography', preview: 'assets/videos/w6hkEzmqCEc.png' },
-  { url: 'https://www.youtube.com/embed/T-r-EGP0Yx4', title: 'Amina Vassa', subtitle: 'Videography', preview: 'assets/videos/T-r-EGP0Yx4.png' },
+  { url: 'https://www.youtube.com/embed/D_0fOuZ-ZFU', title: '', subtitle: '', preview: 'assets/videos/D_0fOuZ-ZFU.png' },
+  { url: 'https://www.youtube.com/embed/ZYOnbqwiWZA', title: '', subtitle: '', preview: 'assets/videos/ZYOnbqwiWZA.png' },
+  { url: 'https://www.youtube.com/embed/oIPAioB5eFQ', title: '', subtitle: '', preview: 'assets/videos/oIPAioB5eFQ.png' },
+  { url: 'https://www.youtube.com/embed/0ScdhAqw6D4', title: '', subtitle: '', preview: 'assets/videos/0ScdhAqw6D4.png' },
+  { url: 'https://www.youtube.com/embed/w6hkEzmqCEc', title: '', subtitle: '', preview: 'assets/videos/w6hkEzmqCEc.png' },
+  { url: 'https://www.youtube.com/embed/T-r-EGP0Yx4', title: '', subtitle: '', preview: 'assets/videos/T-r-EGP0Yx4.png' },
 ];
 
 // ───── Helper: extract YouTube video ID from embed URL ─────
