@@ -94,6 +94,12 @@ navOverlay.querySelectorAll('.nav-overlay__links a').forEach((link) => {
 
 const projects = [
   {
+    url: 'https://www.youtube.com/embed/bAHRYPN3n8A',
+    title: "Harper's Bazaar × Cartier",
+    subtitle: 'Video Editing & Sound Design',
+    preview: 'assets/videos/bAHRYPN3.jpg',
+  },
+  {
     url: 'https://www.youtube.com/embed/XeDyXuUMLI0',
     title: 'Carolina Herrera Parfume Campaign',
     subtitle: 'Video Editing & Sound Design',
@@ -151,17 +157,24 @@ const projects = [
     subtitle: 'Video Editing & Sound Design',
     preview: 'assets/videos/DoADSrGTUik.png',
   },
+  {
+    url: 'https://www.youtube.com/embed/GfFBtFywAIE',
+    title: 'Dior Backstage SS27',
+    subtitle: 'Video Editing & Sound Design',
+    horizontal: true,
+    preview: 'assets/videos/GfFBtFywAIE.png',
+  },
 ];
 
 // ───── Creator projects data ─────
 
 const creatorProjects = [
-  { url: 'https://www.youtube.com/embed/D_0fOuZ-ZFU', title: '', subtitle: '', preview: 'assets/videos/D_0fOuZ-ZFU.png' },
-  { url: 'https://www.youtube.com/embed/ZYOnbqwiWZA', title: '', subtitle: '', preview: 'assets/videos/ZYOnbqwiWZA.png' },
-  { url: 'https://www.youtube.com/embed/oIPAioB5eFQ', title: '', subtitle: '', preview: 'assets/videos/oIPAioB5eFQ.png' },
-  { url: 'https://www.youtube.com/embed/0ScdhAqw6D4', title: '', subtitle: '', preview: 'assets/videos/0ScdhAqw6D4.png' },
-  { url: 'https://www.youtube.com/embed/w6hkEzmqCEc', title: '', subtitle: '', preview: 'assets/videos/w6hkEzmqCEc.png' },
-  { url: 'https://www.youtube.com/embed/T-r-EGP0Yx4', title: '', subtitle: '', preview: 'assets/videos/T-r-EGP0Yx4.png' },
+  { url: 'https://www.youtube.com/embed/D_0fOuZ-ZFU', title: 'Balmain', subtitle: 'Videography', preview: 'assets/videos/D_0fOuZ-ZFU.png' },
+  { url: 'https://www.youtube.com/embed/ZYOnbqwiWZA', title: 'Harris Reed x British Vogue', subtitle: 'Videography', preview: 'assets/videos/ZYOnbqwiWZA.png' },
+  { url: 'https://www.youtube.com/embed/oIPAioB5eFQ', title: 'Hermès', subtitle: 'Videography', preview: 'assets/videos/oIPAioB5eFQ.png' },
+  { url: 'https://www.youtube.com/embed/0ScdhAqw6D4', title: 'Mary Leest, Paris Fashion Week', subtitle: 'Videography', preview: 'assets/videos/0ScdhAqw6D4.png' },
+  { url: 'https://www.youtube.com/embed/w6hkEzmqCEc', title: 'Michael Kors', subtitle: 'Videography', preview: 'assets/videos/w6hkEzmqCEc.png' },
+  { url: 'https://www.youtube.com/embed/T-r-EGP0Yx4', title: 'Amina Vassa', subtitle: 'Videography', preview: 'assets/videos/T-r-EGP0Yx4.png' },
 ];
 
 // ───── Helper: extract YouTube video ID from embed URL ─────
@@ -311,7 +324,10 @@ function renderHomeGrid() {
   const grid = document.getElementById('home-grid');
   if (!grid) return;
 
-  projects.forEach((p) => {
+  const limit = Number(grid.dataset.limit);
+  const list = Number.isFinite(limit) && limit > 0 ? projects.slice(0, limit) : projects;
+
+  list.forEach((p) => {
     const videoId = getVideoId(p.url);
     const card = document.createElement('a');
     card.href = `projects.html#${videoId}`;

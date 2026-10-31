@@ -152,6 +152,27 @@ button {
   opacity: 1;
 }
 
+.home-intro {
+  text-align: center;
+  padding: 0 24px 48px;
+}
+
+.home-intro .about__details {
+  align-items: center;
+}
+
+.home-work .home-grid {
+  padding-bottom: 32px;
+}
+
+.home-work:last-of-type .home-grid {
+  padding-bottom: 60px;
+}
+
+a.home-bar {
+  text-decoration: none;
+}
+
 /* ───── Home Bar (Selected Work / Biography) ───── */
 
 .home-bar {
@@ -1007,6 +1028,18 @@ body.menu-open {
   .home-bar {
     margin: 0 40px;
     padding: 20px 0;
+  }
+
+  .home-intro {
+    padding: 0 40px 64px;
+  }
+
+  .home-work .home-grid {
+    padding-bottom: 40px;
+  }
+
+  .home-work:last-of-type .home-grid {
+    padding-bottom: 80px;
   }
 
   .home-grid {
